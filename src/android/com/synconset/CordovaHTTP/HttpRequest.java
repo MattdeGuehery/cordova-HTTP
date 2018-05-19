@@ -303,7 +303,7 @@ public class HttpRequest {
         }
       } };
       try {
-        SSLContext context = SSLContext.getInstance("TLS");
+        SSLContext context = SSLContext.getInstance("TLSv1.2");
         context.init(null, trustAllCerts, new SecureRandom());
         TRUSTED_FACTORY = context.getSocketFactory();
       } catch (GeneralSecurityException e) {
@@ -453,7 +453,7 @@ public class HttpRequest {
       tmf.init(keyStore);
       
       // Create an SSLContext that uses our TrustManager
-      SSLContext sslContext = SSLContext.getInstance("TLS");
+      SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
       sslContext.init(null, tmf.getTrustManagers(), null);
       PINNED_FACTORY = sslContext.getSocketFactory();
   }
